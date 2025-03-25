@@ -6,7 +6,7 @@
       <field name="name">pre_picking_list</field>
       <field name="model">pre_picking</field>
       <field name="arch" type="xml">
-        <tree decoration-danger="estado=='retrasado'" decoration-success="estado=='terminado'" editable="bottom" >
+        <list decoration-danger="estado=='retrasado'" decoration-success="estado=='terminado'" editable="bottom" >
           <field name="so_asignado"/>
           <field name="usuario_asignado"/>
           <field name="empleado_picking" />
@@ -26,7 +26,7 @@
           <field name="fecha_done_out"  />
           <!-- <field name="fecha_done_out"  />
           <field name="insuficiente"  /> -->
-        </tree>
+        </list>
       </field>
     </record>
         <!-- Busquedas -->
@@ -52,7 +52,7 @@
     <record model="ir.actions.act_window" id="pre_picking_action_window">
       <field name="name">Pre Picking Ordenes de venta</field>
       <field name="res_model">pre_picking</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">list,form</field>
     </record>
 
     <!-- server action to the one above -->
@@ -64,7 +64,7 @@
       <field name="code">
         action = {
           "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
+          "view_mode": "list,form",
           "res_model": self._name,
         }
       </field>
@@ -73,7 +73,7 @@
     <!-- Top menu item -->
     <menuitem name="Pre Picking"
               id="pre_picking_menu_root"
-              web_icon="wb_pre_picking,static/description/icon.png"/>
+              web_icon="WB_data_pre_picking,static/description/icon.png"/>
     <!-- menu categories -->
     <menuitem name="Lista de Ordenes" id="pre_picking_menu_1" parent="pre_picking_menu_root"/>
     <!-- actions -->
