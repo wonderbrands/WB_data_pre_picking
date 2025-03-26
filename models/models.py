@@ -2,7 +2,6 @@
 
 import logging
 from odoo import api, fields, models, _
-from odoo.exceptions import Warning
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 from odoo.exceptions import ValidationError
@@ -122,7 +121,7 @@ class pre_picking(models.Model):
     @api.model
     def _poblar_opciones(self):
         opciones = [('no_procesado','No Procesado'),('en_proceso','En Proceso'),('retrasado', 'Retrasado'), ('terminado', 'Terminado')]
-        if self.env['res.users'].has_group('pre_picking.group_pre_picking_shipping'):
+        if self.env.user.has_group('pre_picking.group_pre_picking_shipping'):
             opciones+=[('recolectado', 'Recolectado')]
         return opciones
     
